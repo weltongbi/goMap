@@ -1,0 +1,70 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Trigger / goMap</title>
+<link href="demo-main.css" rel="stylesheet" />
+</head>
+<body>
+
+
+<div id="example-holder">
+
+	<p>Use MarkerClusterer: http://gmaps-utility-library-dev.googlecode.com/svn/tags/markerclusterer/</p>
+
+	<div id="map"></div>
+
+</div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false&amp;v=3.16"></script>
+<script src="../js/jquery.gomap.min.js"></script>
+<script src="../js/markerclusterer.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+	$("#map").goMap({
+		markers: [{
+			latitude: 56.948813,
+			longitude: 24.704004,
+			id: 'test1',
+			title: 'marker title 1'
+		}]
+	});
+
+	$.goMap.ready(function() {
+		var bounds = $.goMap.getBounds();
+		var southWest = bounds.getSouthWest();
+		var northEast = bounds.getNorthEast();
+		var lngSpan = northEast.lng() - southWest.lng();
+		var latSpan = northEast.lat() - southWest.lat();
+
+		for (var i = 0; i < 25; i++) {
+			$.goMap.createMarker({
+				latitude: southWest.lat() + latSpan * Math.random(),
+				longitude: southWest.lng() + lngSpan * Math.random(),
+				group: 'first',
+				icon: 'http://www.google.com/intl/en_ALL/mapfiles/marker_green'+String.fromCharCode(i + 65)+'.png'
+
+			});
+		}
+
+		var markers = [];
+
+		for (var i in $.goMap.markers) {
+			var temp = $($.goMap.mapId).data($.goMap.markers[i]);
+			markers.push(temp);
+		}
+
+		var markerclusterer = new MarkerClusterer($.goMap.map, markers);
+	});
+
+
+});
+</script>
+
+</body>
+</html>
