@@ -10,7 +10,7 @@
 
 <div id="example-holder">
 
-	<input type="button" name="trigger" value="Trigger" id="trigger" />
+	<input type="button" name="count1" value="json" id="count1" />
 
 	<div id="map"></div>
 
@@ -24,25 +24,25 @@
 
 <script type="text/javascript">
 $(function() {
+	$("#map").goMap({zoom:10});
 
-	$("#map").goMap({
-		icon: '../img/apartment.png',
-		addMarker: true,
-		disableDoubleClickZoom: true,
-		markers: [{
-			latitude: 56.948813,
-			longitude: 24.704004,
-			title: 'marker title 1',
-			id: 'info1',
-			html: {
-				content: 'drag me!<br/> test1'
+	$("#count1").click(function() {
+
+		$.get('json-positions.json', function(data) {
+			for(var i = 0, l = data.positions.length; i < l; i++) {
+				var marker = data.positions[i];
+
+				$.goMap.createMarker({
+					latitude: marker.latitude,
+					longitude: marker.longitude,
+					title: marker.device_label
+				});
 			}
-		}]
+		}, 'json');
+
+		$(this).attr("disabled","disabled");
 	});
 
-	$("#trigger").click(function(){
-		google.maps.event.trigger($($.goMap.mapId).data('info1'), 'click');
-	});
 
 });
 </script>
