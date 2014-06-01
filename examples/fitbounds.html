@@ -1,0 +1,54 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>fitBounds / goMap</title> 
+<link href="demo-main.css" rel="stylesheet" /> 
+</head>
+<body>
+
+
+<div id="example-holder">
+	
+	<input type="button" name="fitbounds" value="fitBounds" id="fitbounds" />
+	
+	<div id="map"></div>
+
+</div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false&amp;v=3.16"></script>
+<script src="../js/jquery.gomap.min.js"></script>
+
+<script type="text/javascript"> 
+$(function() {
+
+	$("#map").goMap({
+		scaleControl: true, 
+		maptype: 'ROADMAP', 
+		streetViewControl: false,
+		
+		markers: [
+			{address: 'Roma (AG)', id:'m1'},
+			{address: 'Napoli (NA)', id:'m2'},
+			{address: 'Milano (MI)', id:'m3'},
+			{address: 'Pisa (PI)', id:'m4'}
+		
+		]
+	});
+	
+	$.goMap.fitBounds();
+
+	$("#fitbounds").click(function(){ 
+		$.goMap.createMarker({address: 'Berlin, Germany', id:'m5'});
+		$.goMap.fitBounds();
+	});
+	
+
+});
+</script> 
+
+</body>
+</html>
