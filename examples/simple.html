@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Simple / goMap</title>
+<link href="demo-main.css" rel="stylesheet" />
+</head>
+<body>
+
+
+<div id="example-holder">
+
+
+	<h3>#map1 Simple map</h3>
+	<div class="map" id="map1"></div>
+
+	<h3>#map2 Set centered map by latitude, longitude and zoom</h3>
+	<div class="map" id="map2"></div>
+
+
+	<h3>#map3 Disable pan control, map control, scroll wheel and double click zoom</h3>
+	<div class="map" id="map3"></div>
+
+
+	<h3>#map4 diffrent control positions and options</h3>
+	<div class="map" id="map4"></div>
+
+</div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false&amp;v=3.16"></script>
+<script src="../js/jquery.gomap.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+
+	$("#map1").goMap({});
+
+	$("#map2").goMap({
+        latitude: 56.948813,
+        longitude: 24.104004,
+        zoom: 6
+    });
+
+	$("#map3").goMap({
+		//navigationControl: false,
+
+		panControl: false,
+
+		mapTypeControl: false,
+		scrollwheel: false,
+		disableDoubleClickZoom: true
+	});
+
+
+	$("#map4").goMap({
+
+		panControl: true,
+		panControlOptions: {
+            position: 'TOP'				//BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT_BOTTOM, LEFT_CENTER, LEFT_TOP, RIGHT_BOTTOM, RIGHT_CENTER, RIGHT_TOP, TOP_CENTER, TOP_LEFT, TOP_RIGHT -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#ControlPosition
+        },
+
+		zoomControl: true,
+        zoomControlOptions: {
+            position: 'LEFT_CENTER',	//BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT_BOTTOM, LEFT_CENTER, LEFT_TOP, RIGHT_BOTTOM, RIGHT_CENTER, RIGHT_TOP, TOP_CENTER, TOP_LEFT, TOP_RIGHT -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#ControlPosition
+            style: 'SMALL'			//DEFAULT, LARGE, SMALL -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#ZoomControlStyle
+        }
+
+	})
+
+
+
+});
+</script>
+
+</body>
+</html>

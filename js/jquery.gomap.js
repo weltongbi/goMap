@@ -3,7 +3,7 @@
  *
  * @url		http://www.pittss.lv/jquery/gomap/
  * @author	Jevgenijs Shtrauss <pittss@gmail.com>
- * @version	1.3.2 2011.07.01
+ * @version	1.3.x xxxx.xx.xx
  * This software is released under the MIT License <http://www.opensource.org/licenses/mit-license.php>
  */
 
@@ -44,11 +44,17 @@
 			prefixId:					'gomarker',
 			polyId:						'gopoly',
 			groupId:					'gogroup',
-		    navigationControl:			true, // Show or hide navigation control
-			navigationControlOptions:	{
+		    zoomControl:				true, // Show or hide navigation control
+			zoomControlOptions:	{
 				position:	'TOP_LEFT', // TOP, TOP_LEFT, TOP_RIGHT, BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT, RIGHT
 				style:		'DEFAULT' 	// DEFAULT, ANDROID, SMALL, ZOOM_PAN
 			},
+			panControl:					true,
+			panControlOptions:	{
+				position:	'TOP_LEFT' // TOP, TOP_LEFT, TOP_RIGHT, BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT, RIGHT
+			},
+
+
 		    mapTypeControl: 			true, // Show or hide map control
 			mapTypeControlOptions:		{
 				position: 	'TOP_RIGHT', // TOP, TOP_LEFT, TOP_RIGHT, BOTTOM, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT, RIGHT
@@ -142,11 +148,17 @@
 					style:		google.maps.MapTypeControlStyle[opts.mapTypeControlOptions.style.toUpperCase()]
 				},
 				mapTypeId:				google.maps.MapTypeId[opts.maptype.toUpperCase()],
-        		navigationControl:		opts.navigationControl,
-				navigationControlOptions: {
-					position:	google.maps.ControlPosition[opts.navigationControlOptions.position.toUpperCase()],
-					style:		google.maps.NavigationControlStyle[opts.navigationControlOptions.style.toUpperCase()]
+        		zoomControl:			opts.zoomControl,
+				zoomControlOptions: {
+					position:	google.maps.ControlPosition[opts.zoomControlOptions.position.toUpperCase()],
+					style:		google.maps.ZoomControlStyle[opts.zoomControlOptions.style.toUpperCase()]
 				},
+
+				panControl:		opts.panControl,
+				panControlOptions: {
+					position:	google.maps.ControlPosition[opts.panControlOptions.position.toUpperCase()]
+				},
+
 		        scaleControl:			opts.scaleControl,
 		        scrollwheel:			opts.scrollwheel,
 				zoom:					opts.zoom
@@ -279,11 +291,14 @@
 			if(options.mapTypeControlOptions && options.mapTypeControlOptions.style)
 				options.mapTypeControlOptions.style = google.maps.MapTypeControlStyle[options.mapTypeControlOptions.style.toUpperCase()];
 
-			if(options.navigationControlOptions && options.navigationControlOptions.position)
-				options.navigationControlOptions.position = google.maps.ControlPosition[options.navigationControlOptions.position.toUpperCase()];
+			if(options.zoomControlOptions && options.zoomControlOptions.position)
+				options.zoomControlOptions.position = google.maps.ControlPosition[options.zoomControlOptions.position.toUpperCase()];
 
-			if(options.navigationControlOptions && options.navigationControlOptions.style)
-				options.navigationControlOptions.style = google.maps.NavigationControlStyle[options.navigationControlOptions.style.toUpperCase()];
+			if(options.zoomControlOptions && options.zoomControlOptions.style)
+				options.zoomControlOptions.style = google.maps.ZoomControlStyle[options.zoomControlOptions.style.toUpperCase()];
+
+			if(options.panControlOptions && options.panControlOptions.position)
+				options.panControlOptions.position = google.maps.ControlPosition[options.panControlOptions.position.toUpperCase()];
 
 			this.map.setOptions(options);
 		},
