@@ -59,14 +59,20 @@ $(function() {
 
 		panControl: true,
 		panControlOptions: {
-            position: 'TOP'				//BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT_BOTTOM, LEFT_CENTER, LEFT_TOP, RIGHT_BOTTOM, RIGHT_CENTER, RIGHT_TOP, TOP_CENTER, TOP_LEFT, TOP_RIGHT -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#ControlPosition
-        },
+			position: 'TOP'				//BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT_BOTTOM, LEFT_CENTER, LEFT_TOP, RIGHT_BOTTOM, RIGHT_CENTER, RIGHT_TOP, TOP_CENTER, TOP_LEFT, TOP_RIGHT -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#ControlPosition
+		},
 
 		zoomControl: true,
-        zoomControlOptions: {
-            position: 'LEFT_CENTER',	//BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT_BOTTOM, LEFT_CENTER, LEFT_TOP, RIGHT_BOTTOM, RIGHT_CENTER, RIGHT_TOP, TOP_CENTER, TOP_LEFT, TOP_RIGHT -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#ControlPosition
-            style: 'SMALL'			//DEFAULT, LARGE, SMALL -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#ZoomControlStyle
-        }
+		zoomControlOptions: {
+			position: 'LEFT_CENTER',	//BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT_BOTTOM, LEFT_CENTER, LEFT_TOP, RIGHT_BOTTOM, RIGHT_CENTER, RIGHT_TOP, TOP_CENTER, TOP_LEFT, TOP_RIGHT -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#ControlPosition
+			style: 'SMALL'				//DEFAULT, LARGE, SMALL -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#ZoomControlStyle
+		},
+
+		mapTypeControl: true,
+		mapTypeControlOptions: {		//BOTTOM_CENTER, BOTTOM_LEFT, BOTTOM_RIGHT, LEFT_BOTTOM, LEFT_CENTER, LEFT_TOP, RIGHT_BOTTOM, RIGHT_CENTER, RIGHT_TOP, TOP_CENTER, TOP_LEFT, TOP_RIGHT -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#ControlPosition
+			position: 'RIGHT_BOTTOM',
+			style: 'DROPDOWN_MENU'		//DROPDOWN_MENU, HORIZONTAL_BAR -> https://developers.google.com/maps/documentation/javascript/3.exp/reference#MapTypeControlStyle
+		}
 
 	})
 
