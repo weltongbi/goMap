@@ -40,7 +40,7 @@ $(function() {
 		}]
 	});
 
-	$("#trigger").click(function(){
+	$("#trigger").on("click", function() {
 		google.maps.event.trigger($($.goMap.mapId).data('info1'), 'click');
 	});
 

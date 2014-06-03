@@ -26,7 +26,7 @@
 $(function() {
 	$("#map").goMap({zoom:10});
 
-	$("#count1").click(function() {
+	$("#count1").on("click", function() {
 
 		$.get('json-positions.json', function(data) {
 			for(var i = 0, l = data.positions.length; i < l; i++) {

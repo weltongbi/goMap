@@ -8,30 +8,30 @@ This plugin use javascript google maps api v3.
 HTML
 
 ```html
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>  
-<script type="text/javascript" src="js/jquery.gomap-1.3.2.min.js"></script> 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.gomap-1.3.2.min.js"></script>
 
-<style> 
-#map { 
-    width:700px; 
-    height:400px; 
-} 
-</style> 
+<style>
+#map {
+    width:700px;
+    height:400px;
+}
+</style>
 ```
 
-javascript 
+javascript
 
-```javascript 
-$(function() { 
-    $("#map").goMap(); 
+```javascript
+$(function() {
+    $("#map").goMap();
 });
 ```
 
 ## Supported Browsers
 
 - Internet Explorer 7, and 8+
-- Safari 
+- Safari
 - Google Chrome
 - Opera
 - Firefox
