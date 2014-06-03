@@ -10,12 +10,17 @@
 
 <div id="example-holder">
 
-	<input type="button" name="fitbounds" value="fitBounds" id="fitbounds" />
+	<input type="button" name="b1" value="getBounds" id="b1" />
+	<input type="button" name="b2" value="fitBounds (all markers)" id="b2" />
+	<br>
+	<input type="button" name="b3" value="Show / hide marker wich id 'm1' and 'm5'" id="b3" />
+	<input type="button" name="b4" value="fitBounds (only visible markers)" id="b4" />
+	<br>
+	<input type="button" name="b5" value="fitBounds (only markers wich id 'm3' and 'm4')" id="b5" />
 
 	<div class="map" id="map"></div>
 
 </div>
-
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -31,20 +36,37 @@ $(function() {
 		streetViewControl: false,
 
 		markers: [
-			{address: 'Roma (AG)', id:'m1'},
-			{address: 'Napoli (NA)', id:'m2'},
-			{address: 'Milano (MI)', id:'m3'},
-			{address: 'Pisa (PI)', id:'m4'}
-
+			{address: 'Zürich', id:'m1'},
+			{address: 'Milano (MI)', id:'m2'},
+			{address: 'Pisa (PI)', id:'m3'},
+			{address: 'Rom (AG)', id:'m4'},
+			{address: 'Napoli (NA)', id:'m5'},
 		]
 	});
 
 	$.goMap.fitBounds();
 
-	$("#fitbounds").click(function(){
-		$.goMap.createMarker({address: 'Berlin, Germany', id:'m5'});
-		$.goMap.fitBounds();
-	});
+
+	$("#b1").on("click", function() {
+        alert($.goMap.getBounds());
+    });
+
+    $("#b2").on("click", function() {
+        $.goMap.fitBounds();
+    });
+
+    $("#b3").on("click", function() {
+        $.goMap.showHideMarker('m1');
+        $.goMap.showHideMarker('m5');
+    });
+
+    $("#b4").on("click", function() {
+        $.goMap.fitBounds('visible');
+    });
+
+    $("#b5").on("click", function() {
+        $.goMap.fitBounds('markers',['m3','m4']);
+    });
 
 
 });
